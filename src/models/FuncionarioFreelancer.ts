@@ -10,7 +10,16 @@ export class FuncionarioFreelancer extends Funcionario{
           this.dtFimContrato = dtFimContrato;
      }
 
-     calcularSalario(horasTrabalhadas: number){
-          
+     calcularSalario(horasTrabalhadas: number): number{
+          return this.salarioHora * horasTrabalhadas;
+     }
+
+     isContratoAtivo(): boolean{
+          const hoje = new Date();
+          if(this.dtFimContrato >= hoje){
+               return true;
+          }else{
+               return false;
+          }
      }
 }
